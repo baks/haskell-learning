@@ -18,3 +18,9 @@ doubleEveryOtherFromHead (x:(y:xs)) = [x,y*2] ++ doubleEveryOtherFromHead xs
 doubleEveryOther :: [Integer] -> [Integer]
 doubleEveryOther xs = reverse (doubleEveryOtherFromHead (reverse xs))
 
+sumDigits :: [Integer] -> Integer
+sumDigits [] = 0
+sumDigits (x:xs) = sum (toDigits x) + sumDigits xs 
+
+validate :: Integer -> Bool
+validate xs = if sumDigits (doubleEveryOther (toDigits xs)) `mod` 10 == 0 then True else False
