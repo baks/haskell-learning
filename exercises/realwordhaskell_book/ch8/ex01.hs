@@ -1,0 +1,1 @@
+malformedPattern = globToRegex "["
